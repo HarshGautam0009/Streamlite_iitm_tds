@@ -1,12 +1,15 @@
-num1 = float(input("Enter first number: "))
-num2 = float(input("Enter second number: "))
-num3 = float(input("Enter third number: "))
+import streamlit as st
 
-if (num1 >= num2) and (num1 >= num3):
-   largest = num1
-elif (num2 >= num1) and (num2 >= num3):
-   largest = num2
-else:
-   largest = num3
+st.title("Find Largest Number")
 
-print("The largest number is", largest)
+# Get user input for the three numbers
+num1 = st.number_input("Enter First Number:", min_value=float())
+num2 = st.number_input("Enter Second Number:", min_value=float())
+num3 = st.number_input("Enter Third Number:", min_value=float())
+
+# Find the largest number using built-in max function
+largest = max(num1, num2, num3)
+
+# Display the result
+if st.button("Find Largest"):
+  st.write("The largest number is:", largest)
